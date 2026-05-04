@@ -3404,23 +3404,25 @@ if y_true is not None:
 
     fig, ax = plt.subplots(figsize=(7.2, 6.4))
 
+    point_color = model_color(idx, n_models)
+
     ax.scatter(
 
-            y_true, pred,
+        y_true, pred,
 
-            label=f"Predicted – {clean_model_label(name)}",
+        label=f"Predicted – {clean_model_label(name)}",
 
-            color=model_color(idx, n_models),
+        color=point_color,
 
-            edgecolors="black",
+        edgecolors=point_color,
 
-            linewidths=0.35,
+        linewidths=0.45,
 
-            s=28,
+        s=28,
 
-            alpha=0.75
+        alpha=0.75
 
-        )
+    )
 
     finite = np.isfinite(y_true) & np.isfinite(pred)
 
