@@ -16,17 +16,15 @@ This repository contains a Streamlit application for calibration, prediction, an
 
 The app includes classical and recent permanent deformation models, including Barksdale, Hyde, Veverka, Lentz and Baladi, Khedr, Paute, Sweere, Hornych, Wolff and Visser, Rahman et al., Rahman and Erlingsson, Korkiala–Tanttu, Erlingsson and Rahman modified Korkiala–Tanttu, Huurman, Gidel, Chen, Tseng and Lytton, MEPDG/NCHRP, Chow, Lin, and Ooi models.
 
-## Installation
+## Online Application
+The application can be accessed online at:
 
-```bash
+
+## Running the app locally
+If you prefer to run the app locally:
+
 pip install -r requirements.txt
-```
-
-## Running the app
-
-```bash
 streamlit run app.py
-```
 
 ## Notes
 
