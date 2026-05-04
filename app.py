@@ -3342,7 +3342,7 @@ if y_true is not None:
 
         x_plot, y_true,
 
-        label=f"Measured ({strain_unit})",
+        label="Measured",
 
         marker="o",
 
