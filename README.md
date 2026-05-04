@@ -23,8 +23,8 @@ The application can be accessed online at:
 ## Running the app locally
 If you prefer to run the app locally:
 
-pip install -r requirements.txt
-streamlit run app.py
+``pip install -r requirements.txt``
+``streamlit run app.py``
 
 ## Notes
 
