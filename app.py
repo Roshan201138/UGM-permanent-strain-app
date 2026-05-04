@@ -11,6 +11,34 @@ from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from scipy.optimize import curve_fit, least_squares
 
 
+st.markdown("""
+<style>
+  .stApp {
+    background-color: #0E1A24;
+    color: #E6EEF5;
+    font-family: "Times New Roman";
+  }
+  h1, h2, h3 {
+    color: #E6EEF5 !important;
+  }
+  .stSidebar {
+    background-color: #162734;
+  }
+  .stButton>button {
+    background-color: #1F4E79;
+    color: white;
+  }
+  .stDownloadButton>button {
+    background-color: #2E6F95;
+    color: white;
+  }
+  hr {
+    border: 1px solid #2E6F95;
+  }
+</style>
+""", unsafe_allow_html=True)
+
+
 st.set_page_config(page_title="UGM Permanent Strain Prediction and Calibration", layout="wide")
 
 
@@ -367,19 +395,23 @@ def fig_to_png_bytes(fig):
 
 def show_plot_with_download(fig, filename, label="Download plot as PNG"):
 
+  png_bytes = fig_to_png_bytes(fig)
+
   st.pyplot(fig, use_container_width=True)
 
   st.download_button(
 
     label,
 
-    data=fig_to_png_bytes(fig),
+    data=png_bytes,
 
     file_name=filename,
 
     mime="image/png",
 
-    key=f"download_{filename}"
+    key=f"download_{filename}",
+
+    on_click="ignore"
 
  )
 
@@ -3408,21 +3440,21 @@ if y_true is not None:
 
     ax.scatter(
 
-        y_true, pred,
+            y_true, pred,
 
-        label=f"Predicted – {clean_model_label(name)}",
+            label=f"Predicted – {clean_model_label(name)}",
 
-        color=point_color,
+            color=point_color,
 
-        edgecolors=point_color,
+            edgecolors=point_color,
 
-        linewidths=0.45,
+            linewidths=0.45,
 
-        s=28,
+            s=28,
 
-        alpha=0.75
+            alpha=0.75
 
-    )
+        )
 
     finite = np.isfinite(y_true) & np.isfinite(pred)
 
@@ -3570,7 +3602,11 @@ st.download_button(
 
   file_name="ugm_permanent_strain_results.xlsx",
 
-  mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+
+  key="download_results_excel",
+
+  on_click="ignore"
 
 )
 
@@ -3579,4 +3615,5 @@ st.download_button(
 
 
 if __name__ == "__main__":
+
   pass
